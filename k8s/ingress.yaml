@@ -5,26 +5,22 @@ metadata:
   namespace: chat-app
   annotations:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
-
 spec:
   ingressClassName: nginx
-
   rules:
-  - host: chat-tws.com
-    http:
-      paths:
-      - path: /api
-        pathType: Prefix
-        backend:
-          service:
-            name: backend
-            port:
-              number: 5001
-
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: frontend
-            port:
-              number: 80
+    - http:
+        paths:
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: backend-service
+                port:
+                  number: 5001
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: frontend-service
+                port:
+                  number: 80

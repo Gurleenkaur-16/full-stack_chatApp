@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend_deployment
+  name: backend-deployment
   namespace: chat-app
   labels:
     apps: backend
@@ -20,14 +20,14 @@ spec:
     spec:
       containers:
         - name: chatappbackend
-          image: 
+          image: 297417178622.dkr.ecr.eu-west-1.amazonaws.com/full-stack_chatapp-backend:latest
           ports:
             - containerPort: 5001
           env:
             - name:  NODE_ENV 
               value: production
             - name: MONGODB_URI
-              value: mongodb://mongoadmin:secret@mongodb:27017/dbname?authSource=admin
+              value: mongodb://mongoadmin:secret@mongodb.default.svc.cluster.local:27017/dbname?authSource=admin
             - name: JWT_SECRET
               value: e15b88f2053960cfb734095f7375eca75d50185cee3af7a7
             - name: PORT

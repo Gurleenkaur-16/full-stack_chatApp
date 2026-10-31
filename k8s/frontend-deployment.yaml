@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend_deployment
+  name: frontend-deployment
   namespace: chat-app
   labels:
     apps: frontend
@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: chatappfrontend
-          image: 
+          image: 297417178622.dkr.ecr.eu-west-1.amazonaws.com/full-stack_chatapp-frontend:v2
           ports:
             - containerPort: 80
           env:
